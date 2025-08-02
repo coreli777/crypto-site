@@ -1,0 +1,224 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.header {
+    width: 100%;
+    height: 200px;
+    border: 1px solid black;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+     background: gold;
+}
+
+.header ul {
+    display: flex;
+    gap: 84px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.header ul li a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.2s;
+}
+
+.header ul li a:hover {
+    color: #0078d4;
+}
+
+.container {
+    display: flex;
+    flex: 1;
+    border: 1px solid black;
+    box-sizing: border-box;
+    padding: 10px;
+    gap: 10px;
+}
+
+.column {
+    border: 1px solid black;
+    box-sizing: border-box;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.logo {
+    float: left;
+    display: block;
+    margin-right: 16px;
+    margin-bottom: 16px; /* Отступ снизу от картинки до текста */
+    max-width: 400px;    /* Максимальная ширина логотипа */
+    height: 250px;
+}
+hr {
+    border: none;
+    border-top: 2px solid #200606;
+    margin: 32px 0;
+}
+
+.column:nth-child(1) {
+    flex: 1;
+}
+
+.column:nth-child(2) {
+    flex: 2;
+}
+
+.column:nth-child(3) {
+    flex: 1;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    .column {
+        width: 100%;
+        height: 200px;
+    }
+}
+/* ...existing code... */
+.footer {
+    width: 100%;
+    height: 60px;
+    background: #f1f1f1;
+    border-top: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: #333;
+    margin-top: 20px;
+}
+.read-more-btn {
+    margin-left: 20px;
+}
+
+.crypto-widget {
+    background: hwb(54 87% 9%);
+    border: 1px solid #ffd700;
+    border-radius: 8px;
+    padding: 16px;
+    font-size: 16px;
+    max-width: 300px;
+    margin-left:30px ;
+}
+.crypto-widget h3 {
+    margin-top: 0;
+    font-size: 18px;
+    color: hwb(79 24% 68%);
+}
+.crypto-widget ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.crypto-widget li {
+    margin-bottom: 20px;
+}
+
+.currency-widget {
+    /* ... другие стили ... */
+    width: 100%; /* Или max-width: 300px; в зависимости от вашей колонки */
+    box-sizing: border-box; /* Важно, чтобы padding не увеличивал общую ширину */
+}
+
+.forex-widget {
+    background: #f0f8ff;
+    border: 1px solid #0078d4;
+    border-radius: 8px;
+    padding: 16px;
+    font-size: 16px;
+    max-width: 300px;
+    margin-top: 100px;
+    margin-left:30px ;
+}
+.forex-widget h3 {
+    margin-top: 0;
+    font-size: 18px;
+    color: #0078d4;
+}
+.forex-widget ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.forex-widget li {
+    margin-bottom: 20px;
+}
+
+.widget-news {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 18px 16px;
+    font-size: 15px;
+    margin-bottom: 20px;
+    max-width: 340px;
+}
+.widget-news h3 {
+    margin-top: 0;
+    font-size: 22px;
+    font-weight: bold;
+    color: #1a2340;
+    margin-bottom: 18px;
+}
+.news-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.news-list li {
+    border-left: 2px solid #e0e0e0;
+    margin-bottom: 18px;
+    padding-left: 16px;
+    position: relative;
+}
+.news-list li::before {
+    content: '';
+    position: absolute;
+    left: -8px;
+    top: 10px;
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    border: 2px solid #e74c3c;
+    border-radius: 50%;
+}
+.news-tag {
+    display: inline-block;
+    background: #e3f1fa;
+    color: #3b6ea5;
+    font-size: 13px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-right: 8px;
+    margin-bottom: 3px;
+}
+.news-date {
+    color: #888;
+    font-size: 13px;
+    margin-right: 8px;
+}
+.news-title {
+    font-weight: bold;
+    color: #1a2340;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
