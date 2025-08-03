@@ -41,49 +41,7 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 // ...existing code...
 
-function fetchForexRates() {
-  const pairs = [
-    { base: "EUR", quote: "USD" },
-    { base: "USD", quote: "JPY" },
-    { base: "GBP", quote: "USD" },
-   ];
 
-  const list = document.getElementById('forexList');
-  if (!list) return;
-
-  list.innerHTML = '<li>Загрузка...</li>';
-
-  // Собираем все уникальные валюты
-  const bases = [...new Set(pairs.map(p => p.base))];
-  const quotes = [...new Set(pairs.map(p => p.quote))];
-  const symbols = quotes.join(',');
-
-  // Для каждой уникальной base делаем запрос
-  Promise.all(
-    bases.map(base =>
-      fetch(`https://api.exchangerate.host/latest?base=${base}&symbols=${symbols}`)
-        .then(res => res.json())
-        .then(data => ({ base, rates: data.rates }))
-        .catch(() => ({ base, rates: {} }))
-    )
-  ).then(results => {
-    // Собираем все курсы в объект
-    const ratesByBase = {};
-    results.forEach(r => { ratesByBase[r.base] = r.rates; });
-
-    list.innerHTML = '';
-    pairs.forEach(pair => {
-      const rate = ratesByBase[pair.base]?.[pair.quote];
-      list.innerHTML += `<li><strong>${pair.base}/${pair.quote}:</strong> ${rate ? rate : 'Ошибка'}</li>`;
-    });
-  });
-}
-
-// Запуск при загрузке страницы и обновление каждые 60 секунд
-window.addEventListener('DOMContentLoaded', () => {
-  fetchForexRates();
-  setInterval(fetchForexRates, 60000);
-});
 
 document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('.news-date[data-date]').forEach(function(span) {
@@ -104,4 +62,5 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+
 
